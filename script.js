@@ -13,37 +13,68 @@ function getHumanChoice() {
   return prompt("What is your move (Rock, Paper or Scissor)?");
 }
 
-let humanScore = 0;
-let computerScore = 0;
+// main function for the game
 
-let didHumanWon = false;
-let isDraw = false;
+function playGame() {
+  // initialize the score and booleans
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "rock") {
-    if (computerChoice === "paper") didHumanWon = false;
-    else if (computerChoice === "scissor") didHumanWon = true;
-    else isDraw = true;
-  } else if (humanChoice === "paper") {
-    if (computerChoice === "rock") didHumanWon = true;
-    else if (computerChoice === "scissor") didHumanWon = false;
-    else isDraw = true;
-  } else if (humanChoice === "scissor") {
-    if (computerChoice === "paper") didHumanWon = true;
-    else if (computerChoice === "rock") didHumanWon = false;
-    else isDraw = true;
+  let humanScore = 0;
+  let computerScore = 0;
+
+  let didHumanWon = false;
+  let isDraw = false;
+
+  function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock") {
+      if (computerChoice === "paper") didHumanWon = false;
+      else if (computerChoice === "scissor") didHumanWon = true;
+      else isDraw = true;
+    } else if (humanChoice === "paper") {
+      if (computerChoice === "rock") didHumanWon = true;
+      else if (computerChoice === "scissor") didHumanWon = false;
+      else isDraw = true;
+    } else if (humanChoice === "scissor") {
+      if (computerChoice === "paper") didHumanWon = true;
+      else if (computerChoice === "rock") didHumanWon = false;
+      else isDraw = true;
+    }
+
+    // determine the round winner and update their score
+
+    if (isDraw) {
+      console.log(`It's a draw! Both of you played ${humanChoice}`);
+    } else if (didHumanWon) {
+      console.log(`You won! ${humanChoice} beats ${computerChoice}.`);
+      humanScore++;
+    } else {
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+      computerScore++;
+    }
+
+    // reset the booleans for the next round
+
+    didHumanWon = false;
+    isDraw = false;
   }
 
-  if (isDraw) {
-    console.log(`It's a draw! Both of you played ${humanChoice}`);
-  } else if (didHumanWon) {
-    console.log(`You won! ${humanChoice} beats ${computerChoice}.`);
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice().toLowerCase(), getComputerChoice());
+  }
+
+  // determine the winner of the game
+
+  if (humanScore === computerScore) {
+    console.log("It's a draw!");
+  } else if (humanScore > computerScore) {
+    console.log("Wow! You won!");
   } else {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+    console.log("You lose!");
   }
+
+  // reset the score for the next game
+
+  humanScore = 0;
+  computerScore = 0;
 }
 
-const humanSelection = getHumanChoice().toLowerCase();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
