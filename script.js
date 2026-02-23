@@ -8,3 +8,7 @@ function getComputerChoice() {
   else if (randomVal === 2) return "Paper";
   else return "Scissor";
 }
+
+function getHumanChoice() {
+  return prompt("What is your move (Rock, Paper or Scissor)?");
+}
