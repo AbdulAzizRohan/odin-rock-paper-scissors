@@ -25,7 +25,6 @@ function playGame() {
   const gameResultPara = document.querySelector(".game-result-para");
   const gameResultBtn = document.querySelector("#game-result-btn");
   gameResult.style.display = "none";
-  gameResult.appendChild(gameResultPara);
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
@@ -94,15 +93,21 @@ function playGame() {
   const scissor = document.querySelector("#scissor");
 
   rock.addEventListener("click", () => {
-    playRound("rock", getComputerChoice());
+    if (humanScore !== 5 && computerScore !== 5) {
+      playRound("rock", getComputerChoice());
+    }
   });
 
   paper.addEventListener("click", () => {
-    playRound("paper", getComputerChoice());
+    if (humanScore !== 5 && computerScore !== 5) {
+      playRound("paper", getComputerChoice());
+    }
   });
 
   scissor.addEventListener("click", () => {
-    playRound("scissor", getComputerChoice());
+    if (humanScore !== 5 && computerScore !== 5) {
+      playRound("scissor", getComputerChoice());
+    }
   });
 }
 
