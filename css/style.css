@@ -1,0 +1,25 @@
+.choice-button {
+  font-size: 6rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+p, .score-div {
+  font-size: 2rem;
+}
+
+#game-result-btn {
+  font-size: 2rem;
+}
+
+.game-result {
+  text-align: center;
+}
