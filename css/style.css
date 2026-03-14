@@ -1,25 +1,49 @@
-.choice-button {
-  font-size: 6rem;
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #131314;
+  color: whitesmoke;
 }
 
 h1 {
   font-size: 4rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 p, .score-div {
+  font-family: 'Courier New', Courier, monospace;
   font-size: 2rem;
 }
 
 #game-result-btn {
   font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .game-result {
   text-align: center;
+}
+
+button {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  transition: border-radius 0.2s ease;
+}
+
+button:hover {
+  border-radius: 2rem;
+  background-color: paleturquoise;
+}
+
+.choice-div {
+  background-color: gray;
+  border-radius: 3rem;
+  padding: 1rem;
+}
+
+.choice-button {
+  font-size: 6rem;
+  margin: 1rem;
+  border: 0;
 }

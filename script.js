@@ -17,8 +17,7 @@ function playGame() {
   let isDraw = false;
 
   const roundResult = document.querySelector(".round-result");
-  const resultPara = document.createElement("p");
-  roundResult.style.display = "none";
+  const resultPara = document.querySelector(".round-result-para");
   roundResult.appendChild(resultPara);
 
   const gameResult = document.querySelector(".game-result");
