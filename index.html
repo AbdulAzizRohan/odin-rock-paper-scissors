@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rock Paper Scissors</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/cf5dd97873.js"
       crossorigin="anonymous"
@@ -13,24 +13,50 @@
   </head>
   <body>
     <header><h1>Rock Paper Scissor</h1></header>
+
     <div class="score-div">
       <div class="score human">You: 0</div>
       <div class="score computer">Computer: 0</div>
     </div>
+
+    <div class="round-result-view">
+      <div class="round-result-move-human">
+        <i
+          class="fa-regular fa-circle-question"
+          id="round-result-move-human-icon"
+        ></i
+        ><br />
+        <p>You</p>
+      </div>
+
+      <div class="round-result-move-computer">
+        <i
+          class="fa-regular fa-circle-question"
+          id="round-result-move-computer-icon"
+        ></i
+        ><br />
+        <p>Computer</p>
+      </div>
+    </div>
+
     <div class="round-result">
       <p class="round-result-para">Make your move</p>
     </div>
+
     <div class="choice-div">
       <button type="button" id="rock" class="choice-button">
         <i class="fa-solid fa-hand-back-fist"></i><br />
       </button>
+
       <button type="button" id="paper" class="choice-button">
         <i class="fa-solid fa-hand"></i><br />
       </button>
+
       <button type="button" id="scissor" class="choice-button">
         <i class="fa-solid fa-hand-peace"></i><br />
       </button>
     </div>
+
     <div class="game-result">
       <p class="game-result-para"></p>
       <button type="button" id="game-result-btn">Play Again</button>

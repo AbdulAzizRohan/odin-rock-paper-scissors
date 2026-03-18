@@ -8,17 +8,18 @@ body {
 
 h1 {
   font-size: 4rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
-p, .score-div {
-  font-family: 'Courier New', Courier, monospace;
+p,
+.score-div {
+  font-family: "Courier New", Courier, monospace;
   font-size: 2rem;
 }
 
 #game-result-btn {
   font-size: 2rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .game-result {
@@ -46,4 +47,21 @@ button:hover {
   font-size: 6rem;
   margin: 1rem;
   border: 0;
+}
+
+.round-result-move-human,
+.round-result-move-computer {
+  /* width: 12rem; */
+  text-align: center;
+}
+
+.round-result-move-human > i,
+.round-result-move-computer > i {
+  font-size: 6rem;
+  margin: 1rem;
+  border: 0;
+}
+
+.round-result-view {
+  display: flex;
 }

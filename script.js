@@ -26,18 +26,85 @@ function playGame() {
   gameResult.style.display = "none";
 
   function playRound(humanChoice, computerChoice) {
+    const humanResultView = document.querySelector(
+      "#round-result-move-human-icon",
+    );
+    const computerResultView = document.querySelector(
+      "#round-result-move-computer-icon",
+    );
+
     if (humanChoice === "rock") {
-      if (computerChoice === "paper") didHumanWon = false;
-      else if (computerChoice === "scissor") didHumanWon = true;
-      else isDraw = true;
+      removeUnneededClasses(humanResultView);
+      humanResultView.classList.add("fa-solid");
+      humanResultView.classList.add("fa-hand-back-fist");
+
+      if (computerChoice === "paper") {
+        didHumanWon = false;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand");
+      } else if (computerChoice === "scissor") {
+        didHumanWon = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-peace");
+      } else {
+        isDraw = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-back-fist");
+      }
     } else if (humanChoice === "paper") {
-      if (computerChoice === "rock") didHumanWon = true;
-      else if (computerChoice === "scissor") didHumanWon = false;
-      else isDraw = true;
+      removeUnneededClasses(humanResultView);
+      humanResultView.classList.add("fa-solid");
+      humanResultView.classList.add("fa-hand");
+
+      if (computerChoice === "rock") {
+        didHumanWon = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-back-fist");
+      } else if (computerChoice === "scissor") {
+        didHumanWon = false;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-peace");
+      } else {
+        isDraw = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand");
+      }
     } else if (humanChoice === "scissor") {
-      if (computerChoice === "paper") didHumanWon = true;
-      else if (computerChoice === "rock") didHumanWon = false;
-      else isDraw = true;
+      removeUnneededClasses(humanResultView);
+      humanResultView.classList.add("fa-solid");
+      humanResultView.classList.add("fa-hand-peace");
+
+      if (computerChoice === "paper") {
+        didHumanWon = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand");
+      } else if (computerChoice === "rock") {
+        didHumanWon = false;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-back-fist");
+      } else {
+        isDraw = true;
+
+        removeUnneededClasses(computerResultView);
+        computerResultView.classList.add("fa-solid");
+        computerResultView.classList.add("fa-hand-peace");
+      }
     }
 
     const humanScoreUpdate = document.querySelector(".human");
@@ -82,8 +149,25 @@ function playGame() {
       humanScoreUpdate.textContent = `You: ${humanScore}`;
       computerScoreUpdate.textContent = `Computer: ${computerScore}`;
 
-      roundResult.style.display = "none";
+      resultPara.textContent = "Make your move";
       gameResult.style.display = "none";
+
+      removeUnneededClasses(humanResultView);
+      humanResultView.classList.add("fa-regular");
+      humanResultView.classList.add("fa-circle-question");
+
+      removeUnneededClasses(computerResultView);
+      computerResultView.classList.add("fa-regular");
+      computerResultView.classList.add("fa-circle-question");
+    }
+
+    function removeUnneededClasses(element) {
+      element.classList.remove("fa-regular");
+      element.classList.remove("fa-circle-question");
+      element.classList.remove("fa-solid");
+      element.classList.remove("fa-hand");
+      element.classList.remove("fa-hand-peace");
+      element.classList.remove("fa-hand-back-fist");
     }
   }
 
